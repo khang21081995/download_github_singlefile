@@ -1,0 +1,29 @@
+{
+  "name": "download_github_singlefile",
+  "version": "1.0.0",
+  "description": "download_github_singlefile",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khang21081995/download_github_singlefile.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/khang21081995/download_github_singlefile/issues"
+  },
+  "homepage": "https://github.com/khang21081995/download_github_singlefile#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "moment": "^2.24.0",
+    "nodegit": "^0.26.5",
+    "swagger-jsdoc": "^1.3.0",
+    "swagger-node-express": "^2.1.3",
+    "swagger-ui-express": "^4.1.3"
+  }
+}
