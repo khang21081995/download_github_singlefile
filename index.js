@@ -23,7 +23,7 @@ var swaggerDefinition = {
         version: '1.0.0',
         description: '',
     },
-    host: '/',
+    // host: '/',
     basePath: '/',
 };
 
@@ -57,28 +57,34 @@ app.use('/', express.static('public'))
  *     produces:
  *       - application/json
  *     parameters:
- *       - gitUrl: "https://github.com/khang21081995/demoHeoku/blob/master/index.js"
- *         description: Link github to file want download
- *         in: body
+ *       - in: body
+ *         name: body
+ *         description: Thông tin thiết lập api mới
  *         required: true
- *         type: string
- *       - name: brand
- *         description: brand file download (default to master)
- *         in: body
- *         required: true
- *         type: string
+ *         schema:
+ *           type: object
+ *           properties:
+ *             gitUrl:
+ *               type: string
+ *               description: Link github to file want download
+ *               required: true
+ *               example: https://github.com/khang21081995/demoHeoku/blob/master/index.js
+ *             brand:
+ *               description: brand file download (default to master)
+ *               type: string
+ *               example: "master"
  *     responses:
  *       200:
  *         description: done 
  */
 app.post('/getLink', (req, res) => {
     try {
-        var branch = 'master';
-        let { gitUrl, brand } = req.body;
+        var branch = req.body.brand || 'master';
+        let { gitUrl } = req.body;
         if (!gitUrl || !(gitUrl + '').toLowerCase().startsWith('https://github.com/')) {
             throw new Error('Invalid params')
         }
-        console.log({ swaggerSpec })
+        // console.log({ swaggerSpec })
         var cloneOptions = new Git.CloneOptions();
         cloneOptions.checkoutBranch = branch;
 
